@@ -1,0 +1,17 @@
+// Place your key bindings in this file to overwrite the defaults
+[{
+  "key": "cmd+k l",
+  "command": "editor.action.reindentselectedlines",
+  "when": "editorTextFocus"
+},
+{
+  "key": "cmd+]",
+  "command": "editor.action.indentLines",
+  "when": "editorTextFocus && !editorReadonly"
+},
+{
+  "key": "cmd+]",
+  "command": "-editor.action.indentLines",
+  "when": "editorTextFocus && !editorReadonly"
+}
+]
