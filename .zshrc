@@ -114,6 +114,7 @@ alias bsup="browser-sync start --server --files '**/*.css, **/*.html, **/*.js'"
 alias apl='ansible-playbook'
 
 # General Purpose
+alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cdh="dirs -v | head -n 10"
 alias please='sudo !!'
 alias mkpasswd="openssl rand -base64"
