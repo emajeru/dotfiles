@@ -42,4 +42,6 @@
     "git.ignoreMissingGitWarning": true,
     "terminal.external.osxExec": "iTerm.app",
     "extensions.ignoreRecommendations": false,
+    "polacode.backgroundColor": "#4ABFC1",
+    "polacode.shadow": "rgba(0, 0, 0, 0.55) 0px 10px 38px",
 }

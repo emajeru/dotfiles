@@ -84,7 +84,7 @@ compinit
 # For a full list of active aliases, run `alias`.
 #
 
-#---- Aliases-----
+#---- Aliases -----
 # ZSH Configuration aliases
 alias zshc="code -n ~/.zshrc"
 alias zshe="code -n ~/.zshenv"
@@ -100,11 +100,11 @@ alias sr="siteroot"
 # Docker
 alias d="docker $*"
 alias dcom="docker-compose $*"
-alias dbsh="docker exec -it $@ /bin/bash"
+alias dbsh="docker-bash $*"
 
 # Python
 alias pyvmake="python -m venv $*"
-alias pyvon='{echo again; echo ${1}; echo someting_else;}'
+alias pyvon="python-virtual-on $*"
 alias pyvoff="deactivate"
 
 alias python='python3'
@@ -116,6 +116,8 @@ alias apl='ansible-playbook'
 # General Purpose
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cdh="dirs -v | head -n 10"
+alias cdf="change-directory-foreground"
+alias cdm="change-directory-new $*"
 alias please='sudo !!'
 alias mkpasswd="openssl rand -base64"
 alias timestamp='date "+%Y%m%d%H%M%S"'

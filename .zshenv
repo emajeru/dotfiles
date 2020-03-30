@@ -1,4 +1,7 @@
 # Functions
+function docker-bash() { docker exec -it "$1" /bin/bash; }
+function python-virtual-on() { source "${1}/bin/activate"; }
+function start() { open /Applications/${1}.app; }
 function sshup() {
 	(cd ~ && ssh-add -A $(ls -1 ~/.ssh | egrep -i '^id.*[^.pub]$' | xargs -n 1 -I {} echo ~/.ssh/{}))
 }
@@ -11,29 +14,13 @@ function qurl() {
 	fi
 }
 
-function start() {
-	ARGS=${1}
-	open /Applications/${1}.app
-}
-
-function mcd() {
-	ARGS=${1}
-	USAGE_PROMPT="Usage: mcd <directory_name>"
-
-	if [ $ARGS ]
+function change-directory-new() {
+	if [ ! -z ${1} ]
 	then
-		mkdir $ARGS
-		cd $ARGS
+		mkdir -p ${1}
+		cd ${1}
 	else
-		echo ${USAGE_PROMPT}
-	fi
-}
-
-function wp_zoom() {
-	ARGS=${1}
-	if [ $ARGS ]
-		then
-		cd "./themes/${ARGS}"
+		echo "No path selected"
 	fi
 }
 
@@ -71,7 +58,7 @@ function siteroot() {
 	fi
 }
 
-function cdf() {
+function change-directory-foreground() {
     target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
     if [ "$target" != "" ]; then
         cd "$target"; pwd
