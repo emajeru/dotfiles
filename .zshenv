@@ -24,6 +24,15 @@ function change-directory-new() {
 	fi
 }
 
+function change-directory-foreground() {
+    target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+    if [ "$target" != "" ]; then
+        cd "$target"; pwd
+    else
+        echo 'No Finder window found' >&2
+    fi
+}
+
 function siteroot() {
 	ROOT="${HOME}/Sites"
 	EDITOR="subl"
@@ -58,14 +67,6 @@ function siteroot() {
 	fi
 }
 
-function change-directory-foreground() {
-    target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
-    if [ "$target" != "" ]; then
-        cd "$target"; pwd
-    else
-        echo 'No Finder window found' >&2
-    fi
-}
 
 function git-dupe() {
 	ARGS=("$@")

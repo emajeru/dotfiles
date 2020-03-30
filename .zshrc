@@ -103,12 +103,12 @@ alias dcom="docker-compose $*"
 alias dbsh="docker-bash $*"
 
 # Python
+alias python='python3'
+alias pip='pip3'
 alias pyvmake="python -m venv $*"
 alias pyvon="python-virtual-on $*"
 alias pyvoff="deactivate"
 
-alias python='python3'
-alias pip='pip3'
 alias gst='git status -sb'
 alias bsup="browser-sync start --server --files '**/*.css, **/*.html, **/*.js'"
 alias apl='ansible-playbook'
