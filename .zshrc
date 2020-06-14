@@ -5,7 +5,7 @@ export NVM_DIR="$HOME/.nvm"
 #---- Oh-My-ZSH -----
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="daveverwer"
-ZSH_CUSTOM="$HOME/Documents/Project/zsh-custom"
+ZSH_CUSTOM="$HOME/Documents/Projects/zsh-custom"
 plugins=(git ansible worker lscm)
 
 source $ZSH/oh-my-zsh.sh
@@ -68,7 +68,7 @@ VIRTUALENV_THEME_PROMPT_PREFIX=""
 VIRTUALENV_THEME_PROMPT_SUFFIX=""
 
 icon_start="┌"
-icon_user="👨🏾‍💻 "
+icon_user="👨🏾‍💻"
 icon_host=" @ 💻 "
 icon_directory=" in 📁 "
 icon_branch="🌿"

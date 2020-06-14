@@ -178,7 +178,7 @@ function prompt_command() {
 	# \n${icon_start}$(virtualenv_prompt)${icon_user}${bold_red}\u${normal}${icon_host}${bold_cyan}\h${normal}${icon_directory}${bold_purple}\W${normal}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on ${icon_branch}  \")${white}$(scm_prompt_info)${normal}\n${icon_end}
 
   PS1="
-${icon_start}$(virtualenv_prompt)${icon_user}%{$fg_bold[blue]%}%n%{$reset_color%}${icon_host}%{$fg_bold[cyan]%}%m%{$reset_color%}${icon_directory}%{$fg_bold[cyan]%}%d%{$reset_color%}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on ${icon_branch} \$(git_prompt_info)\")
+${icon_start}$(virtualenv_prompt)${icon_user}%{$fg_bold[blue]%}%n%{$reset_color%}${icon_host}%{$fg_bold[white]%}%m%{$reset_color%}${icon_directory}%{$fg_bold[cyan]%}%d%{$reset_color%}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on ${icon_branch} \$(git_prompt_short_sha)|\$(git_prompt_info)\")
 ${icon_end}"
   PS2="${icon_end}"
 }

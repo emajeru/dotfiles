@@ -29,7 +29,6 @@
     "[python]": {
         "editor.tabSize": 4
     },
-    "python.pythonPath": "/usr/local/bin/python3",
     "files.associations": {
         "*.cshtml": "cshtml-tm"
     },
@@ -44,4 +43,44 @@
     "extensions.ignoreRecommendations": false,
     "polacode.backgroundColor": "#4ABFC1",
     "polacode.shadow": "rgba(0, 0, 0, 0.55) 0px 10px 38px",
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "todo-tree.tree.showScanModeButton": false,
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIXME",
+        "TODO",
+        "XXX",
+        "REVIEW"
+    ],
+    "todo-tree.general.tagGroups": {
+    
+    },
+    "todo-tree.highlights.defaultHighlight": {
+        "icon": "pin",
+        "type": "text-and-comment",
+        "foreground": "#001D33",
+        "iconColour": "#91B7FB",
+        "background": "#91B7FB",
+        "borderRadius": 0
+    },
+    "todo-tree.highlights.customHighlight": {
+        "FIXME": {
+            "icon": "tools",
+            "foreground": "#001D33",
+            "iconColour": "#F0CD9F",
+            "background": "#F0CD9F"
+        },
+        "BUG": {
+            "foreground": "#001D33",
+            "iconColour": "#FF7084",
+            "background": "#FF7084"
+        },
+        "REVIEW": {
+            "icon": "eye",
+            "foreground": "#001D33",
+            "iconColour": "#D5A6EC",
+            "background": "#D5A6EC"
+        }
+    }
 }
