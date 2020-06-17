@@ -68,10 +68,11 @@ VIRTUALENV_THEME_PROMPT_PREFIX=""
 VIRTUALENV_THEME_PROMPT_SUFFIX=""
 
 icon_start="┌"
-icon_user="👨🏾‍💻"
+icon_user=" %F{178}%F{} "
 icon_host=" @ 💻 "
-icon_directory=" in 📁 "
-icon_branch="🌿"
+icon_directory=" "
+icon_branch=""
+icon_point="%F{242}"
 icon_end="└❯ "
 
 # SCM prompts
@@ -96,8 +97,8 @@ GIT_THEME_PROMPT_SUFFIX=""
 
 ZSH_THEME_GIT_PROMPT_PREFIX=""
 ZSH_THEME_GIT_PROMPT_SUFFIX=""
-ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg_bold[red]%}✗%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_CLEAN=" %{$fg_bold[green]%}✔%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY=" ${icon_point}%F{210}  "
+ZSH_THEME_GIT_PROMPT_CLEAN=" ${icon_point}%F{34}  "
 
 # Runs prompt (this bypasses bash_it $PROMPT setting)
 # PROMPT=prompt_command

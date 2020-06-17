@@ -3,7 +3,7 @@
     "colorInfo.fields": [ "hex", "rgb", "hsl" ],
     "editor.cursorBlinking": "solid",
     "editor.cursorStyle": "line",
-    "editor.fontFamily": "Fira Code, Apple Color Emoji",
+    "editor.fontFamily": "Fira Code, 'Font Awesome 5 Brands',  'Font Awesome 5 Free:Solid', 'Font Awesome 5 Free',monospace, 'Apple Color Emoji'",
     "editor.fontLigatures": true,
     "editor.fontWeight": "400",
     "editor.formatOnPaste": true,
