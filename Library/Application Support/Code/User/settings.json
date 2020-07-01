@@ -82,5 +82,6 @@
             "iconColour": "#D5A6EC",
             "background": "#D5A6EC"
         }
-    }
+    },
+    "python.languageServer": "Microsoft"
 }
