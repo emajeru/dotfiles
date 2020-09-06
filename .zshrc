@@ -6,7 +6,7 @@ export NVM_DIR="$HOME/.nvm"
 export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="daveverwer"
 ZSH_CUSTOM="$HOME/Documents/Projects/zsh-custom"
-plugins=(git ansible worker lscm)
+plugins=(git ansible)
 
 source $ZSH/oh-my-zsh.sh
 
