@@ -5,7 +5,8 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "microsoft/mssql-release"
 tap "ubuntu/microk8s"
-brew "python@3.8", link: false
+cask "adoptopenjdk8"
+brew "python@3.8"
 brew "ansible"
 brew "autoconf"
 brew "automake"
@@ -19,6 +20,7 @@ brew "gnutls"
 brew "pkg-config"
 brew "harfbuzz"
 brew "ffmpeg"
+brew "gh"
 brew "shared-mime-info"
 brew "imagemagick"
 brew "inetutils"
@@ -44,6 +46,7 @@ brew "wp-cli"
 brew "youtube-dl"
 brew "zlib"
 brew "zsh"
+cask "android-sdk"
 cask "docker"
 cask "dropbox"
 cask "firefox"
@@ -75,3 +78,4 @@ mas "Pages", id: 409201541
 mas "Reaper", id: 698147017
 mas "The Archive Browser", id: 510232205
 mas "Twitter", id: 1482454543
+mas "Xcode", id: 497799835

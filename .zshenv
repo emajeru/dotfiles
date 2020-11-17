@@ -169,16 +169,17 @@ function git-obliterate() {
 function virtualenv_prompt {
   if [[ -n "$VIRTUAL_ENV" ]]; then
     virtualenv=`basename "$VIRTUAL_ENV"`
-    echo -e "$VIRTUALENV_CHAR$virtualenv "
+    echo -e "
+  %B%F{178}$VIRTUALENV_CHAR%F{}%F{31}$virtualenv%F{}"
   fi
 }
 
 function prompt_command() {
 	# %{$fg[red]%}%m%{$reset_color%}:%{$fg[green]%}%c%{$reset_color%}$(git_prompt_info) %(!.#.$)
 	# \n${icon_start}$(virtualenv_prompt)${icon_user}${bold_red}\u${normal}${icon_host}${bold_cyan}\h${normal}${icon_directory}${bold_purple}\W${normal}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on ${icon_branch}  \")${white}$(scm_prompt_info)${normal}\n${icon_end}
-
-  PS1="
-%B%F{31}${icon_start}%{$reset_color%}%F{black}%K{31}  %T %F{}%K{}$(virtualenv_prompt)${icon_user}%B%F{31}%n%{$reset_color%} ${icon_point} %F{251}${icon_directory}%1~%{$reset_color%}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" ${icon_point}%F{172} ${icon_branch} \$(git_prompt_info) \$(git_prompt_short_sha)%{$reset_color%}\")
+VENV="\$(virtualenv_prompt)";
+  PS1="  ${VENV}
+%B%F{31}${icon_start}%{$reset_color%}%F{black}%K{31}  %T %F{}%K{}${icon_user}%B%F{31}%n%{$reset_color%} ${icon_point} %F{251}${icon_directory}%1~%{$reset_color%}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" ${icon_point}%F{172} ${icon_branch} \$(git_prompt_info) \$(git_prompt_short_sha)%{$reset_color%}\")
 %B%F{31}${icon_end}%{$reset_color%}"
   PS2="%B%F{31}${icon_end}%{$reset_color%}"
 }

@@ -36,6 +36,7 @@ alias pip='pip3'
 alias pyvmake="python -m venv $*"
 alias pyvon="python-virtual-on $*"
 alias pyvoff="deactivate"
+alias p="python"
 
 # General Purpose
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
@@ -63,7 +64,7 @@ unset MAILCHECK
 export GIT_HOSTING='git@github.com'
 
 # virtualenv prompts
-VIRTUALENV_CHAR="ⓔ "
+VIRTUALENV_CHAR=" "
 VIRTUALENV_THEME_PROMPT_PREFIX=""
 VIRTUALENV_THEME_PROMPT_SUFFIX=""
 
