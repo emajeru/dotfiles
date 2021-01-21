@@ -30,10 +30,13 @@ alias d="docker $*"
 alias dcom="docker-compose $*"
 alias dbsh="docker-bash $*"
 
+# Kubernetes
+alias k="kubectl $*"
+
 # Python
 alias python='python3'
 alias pip='pip3'
-alias pyvmake="python -m venv $*"
+alias pyvmk="python -m venv $*"
 alias pyvon="python-virtual-on $*"
 alias pyvoff="deactivate"
 alias p="python"
