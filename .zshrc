@@ -45,7 +45,6 @@ alias p="python"
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias cdh="dirs -v | head -n 10"
 alias cdf="change-directory-foreground"
-alias cdm="change-directory-new $*"
 alias please='sudo !!'
 alias mkpasswd="openssl rand -base64"
 alias timestamp='date "+%Y%m%d%H%M%S"'

@@ -14,18 +14,37 @@ function qurl() {
 	fi
 }
 
-function change-directory-new() {
-	if [ ! -z ${1} ]
-	then
-		mkdir -p ${1}
-		cd ${1}
+function find_node_modules() {
+	local FOLDERS=()
+
+	while read node_folder; do
+		if grep -Evq 'node_modules/.*/node_modules' < <(echo "${node_folder}"); then
+			FOLDERS+=("$node_folder")
+		fi
+	done < <(find ${HOME}/{Code,Sites,Documents/{Work,Projects}} -maxdepth 8 -type d -name 'node_modules')
+
+	for i in ${FOLDERS[@]}; do
+		echo "$i"
+	done
+}
+
+function tmutil_exclude() {
+	local DIR=$1
+	if tmutil isexcluded $DIR | grep -q '\[Included\]' && [ -e "${DIR}" ]; then
+		sudo tmutil addexclusion -p $DIR && echo "Added ${DIR} to Time Machine exclusion list"
 	else
-		echo "No path selected"
+		echo "Node folder ${DIR} already excluded from Time Machine backup"
 	fi
 }
 
+function tmutil_exclude_node() {
+	while read exclusion; do
+		tmutil_exclude $exclusion
+	done < <(find_node_modules)
+}
+
 function change-directory-foreground() {
-    target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+    local target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
     if [ "$target" != "" ]; then
         cd "$target"; pwd
     else
@@ -34,10 +53,10 @@ function change-directory-foreground() {
 }
 
 function siteroot() {
-	ROOT="${HOME}/Sites"
-	EDITOR="subl"
-	USAGE_PROMPT="Syntax: siteroot -[r | o | t | e | l] <sitename>\n\t-r   Print the site's root folder.\n\t-o   Open the root folder in Finder.\n\t-t   Change directory to the root folder.\n\t-e   Open folder using editor.\n\t-l   List all available site folders."
-	FLAG=${1}
+	local ROOT="${HOME}/Sites"
+	local EDITOR="subl"
+	local USAGE_PROMPT="Syntax: siteroot -[r | o | t | e | l] <sitename>\n\t-r   Print the site's root folder.\n\t-o   Open the root folder in Finder.\n\t-t   Change directory to the root folder.\n\t-e   Open folder using editor.\n\t-l   List all available site folders."
+	local FLAG=${1}
 	
 	if [ ${2} ]
 		then 
