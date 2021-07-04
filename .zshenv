@@ -1,5 +1,12 @@
 # Functions
-function docker-bash() { docker exec -it "$1" /bin/bash; }
+function docker-bash() {
+	if [ $# -gt 1 ] && [ $1 = '-compose' ]; then
+		docker compose exec "$2" /bin/bash;
+	else
+		docker exec -it "$1" /bin/bash;
+	fi
+}
+
 function python-virtual-on() { source "${1}/bin/activate"; }
 function start() { open /Applications/${1}.app; }
 function sshup() {
@@ -198,7 +205,7 @@ function prompt_command() {
 	# \n${icon_start}$(virtualenv_prompt)${icon_user}${bold_red}\u${normal}${icon_host}${bold_cyan}\h${normal}${icon_directory}${bold_purple}\W${normal}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on ${icon_branch}  \")${white}$(scm_prompt_info)${normal}\n${icon_end}
 VENV="\$(virtualenv_prompt)";
   PS1="  ${VENV}
-%B%F{31}${icon_start}%{$reset_color%}%F{black}%K{31}  %T %F{}%K{}${icon_user}%B%F{31}%n%{$reset_color%} ${icon_point} %F{251}${icon_directory}%1~%{$reset_color%}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" ${icon_point}%F{172} ${icon_branch} \$(git_prompt_info) \$(git_prompt_short_sha)%{$reset_color%}\")
-%B%F{31}${icon_end}%{$reset_color%}"
-  PS2="%B%F{31}${icon_end}%{$reset_color%}"
+%F{31}${icon_start}%F{black}%K{31}  %T %{$reset_color%}${icon_user} %F{31}%n ${icon_point} %F{251}${icon_directory}%1~%{$reset_color%}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" ${icon_point}%F{172} ${icon_branch} \$(git_prompt_info) \$(git_prompt_short_sha)%{$reset_color%}\")
+%F{31}${icon_end}%{$reset_color%}"
+  PS2="%F{31}${icon_end}%{$reset_color%}"
 }

@@ -16,3 +16,5 @@
 
 [http]
 	sslVersion = tlsv1.2
+[color]
+	ui = true

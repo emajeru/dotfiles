@@ -27,8 +27,9 @@ alias ni="npm install"
 
 # Docker
 alias d="docker $*"
-alias dcom="docker-compose $*"
+alias dcom="docker compose $*"
 alias dbsh="docker-bash $*"
+alias dcbsh="docker-bash -compose $*"
 
 # Kubernetes
 alias k="kubectl $*"
@@ -39,7 +40,6 @@ alias pip='pip3'
 alias pyvmk="python -m venv $*"
 alias pyvon="python-virtual-on $*"
 alias pyvoff="deactivate"
-alias p="python"
 
 # General Purpose
 alias dots='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
@@ -58,6 +58,7 @@ alias bsup="browser-sync start --server --files '**/*.css, **/*.html, **/*.js'"
 alias apl='ansible-playbook'
 alias c="code"
 alias sr="siteroot"
+alias yl="youtube-dl"
 
 # No more chekcing of local mail
 unset MAILCHECK
@@ -71,7 +72,7 @@ VIRTUALENV_THEME_PROMPT_PREFIX=""
 VIRTUALENV_THEME_PROMPT_SUFFIX=""
 
 icon_start="┌"
-icon_user=" %F{178}%F{} "
+icon_user=" %F{178}"
 icon_host=" @ 💻 "
 icon_directory=" "
 icon_branch=""
@@ -112,3 +113,5 @@ if [ -f /Users/edisonhanchell/.tnsrc ]; then
     source /Users/edisonhanchell/.tnsrc 
 fi
 ###-tns-completion-end-###
+
+. /usr/local/opt/asdf/asdf.sh
