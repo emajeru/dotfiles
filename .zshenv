@@ -8,7 +8,20 @@ function docker-bash() {
 }
 
 function python-virtual-on() { source "${1}/bin/activate"; }
-function start() { open /Applications/${1}.app; }
+
+function start() {
+	SEARCH_PATH=("/System/Applications/Utilities/${1}.app" "/Applications/${1}.app")
+
+	for i in $SEARCH_PATH; do
+		if [ -e $i ]; then
+			open $i
+			return 0
+		fi
+	done
+	echo "${1} not found"
+	return 1
+}
+
 function sshup() {
 	(cd ~ && ssh-add -A $(ls -1 ~/.ssh | egrep -i '^id.*[^.pub]$' | xargs -n 1 -I {} echo ~/.ssh/{}))
 }
