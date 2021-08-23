@@ -8,3 +8,4 @@ export ANDROID_HOME=/usr/local/share/android-sdk
 export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
 export GH_EDITOR=vim
 export VIRTUAL_ENV_DISABLE_PROMPT=1
+eval "$(/opt/homebrew/bin/brew shellenv)"

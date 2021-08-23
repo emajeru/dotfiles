@@ -77,7 +77,7 @@ icon_host=" @ 💻 "
 icon_directory=" "
 icon_branch=""
 icon_point="%F{242}"
-icon_end="└❯ "
+icon_end="%F{31}└❯%F{reset} "
 
 # SCM prompts
 SCM_NONE_CHAR=""
@@ -114,4 +114,4 @@ if [ -f /Users/edisonhanchell/.tnsrc ]; then
 fi
 ###-tns-completion-end-###
 
-. /usr/local/opt/asdf/asdf.sh
+# . /usr/local/opt/asdf/asdf.sh
