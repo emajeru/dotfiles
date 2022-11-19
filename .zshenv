@@ -23,7 +23,11 @@ function start() {
 }
 
 function sshup() {
-	(cd ~ && ssh-add -A $(ls -1 ~/.ssh | egrep -i '^id.*[^.pub]$' | xargs -n 1 -I {} echo ~/.ssh/{}))
+	(cd ~ && ssh-add --apple-use-keychain $(ls -1 ~/.ssh | egrep -i '^id.*[^.pub]$' | xargs -n 1 -I {} echo ~/.ssh/{}))
+}
+
+function sshdown() {
+	killall ssh-agent
 }
 
 function qurl() {

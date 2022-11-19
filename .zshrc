@@ -34,6 +34,13 @@ alias dcbsh="docker-bash -compose $*"
 # Kubernetes
 alias k="kubectl $*"
 
+# Terraform
+alias t="terraform"
+
+alias tw="terraform workspace"
+alias twl="terraform workspace list"
+alias tws="terraform workspace select"
+
 # Python
 alias python='python3'
 alias pip='pip3'
@@ -47,7 +54,8 @@ alias cdh="dirs -v | head -n 10"
 alias cdf="change-directory-foreground"
 alias please='sudo !!'
 alias mkpasswd="openssl rand -base64"
-alias timestamp='date "+%Y%m%d%H%M%S"'
+alias timestamp='date -j "+%Y%m%d%H%M%S"'
+alias timepoch='date -j "+%s"'
 alias flush='dscacheutil -flushcache'
 alias google="ping 8.8.8.8"
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend" # Lock the screen (when going AFK)
@@ -59,6 +67,7 @@ alias apl='ansible-playbook'
 alias c="code"
 alias sr="siteroot"
 alias yl="youtube-dl"
+alias mip="qurl ipinfo.io"
 
 # No more chekcing of local mail
 unset MAILCHECK
