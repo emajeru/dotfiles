@@ -35,20 +35,25 @@ zstyle ':vcs_info:git:*' formats " %{$fg[blue]%}(%{$fg[red]%}%m%u%c%{$fg[yellow]
 # PROMPT+="\$vcs_info_msg_0_ "
 COMMENT
 
-# virtualenv prompts
-VIRTUALENV_CHAR=" "
-VIRTUALENV_THEME_PROMPT_PREFIX=""
-VIRTUALENV_THEME_PROMPT_SUFFIX=""
-
-PROMPT_ICON_START="┌"
-PROMPT_ICON_END="%F{31}└❯%F{reset} "
+# Prompt variables
+PROMPT_BORDER_COLOR="%F{236}"
+PROMPT_BORDER_START="${PROMPT_BORDER_COLOR}┌"
+PROMPT_BORDER_END="${PROMPT_BORDER_COLOR}└❯%F{reset}"
+PROMPT_BORDER_TOP="─"
+PROMPT_BORDER_LEFT="${PROMPT_BORDER_COLOR}│%F{reset}"
 PROMPT_ICON_USER=" %F{178}"
 PROMPT_ICON_DIRECTORY=" "
 PROMPT_ICON_POINT="%F{242}"
 
+# Git prompt variables
 GIT_PROMPT_ICON_BRANCH="%F{172} "
 GIT_PROMPT_ICON_DIRTY="%F{210}  "
 GIT_PROMPT_ICON_CLEAN="%F{34}  "
+
+# virtualenv prompts variables
+VIRTUALENV_CHAR=" "
+VIRTUALENV_THEME_PROMPT_PREFIX=""
+VIRTUALENV_THEME_PROMPT_SUFFIX=""
 
 # Display virtual environment info
 function virtualenv_prompt {
@@ -59,6 +64,7 @@ function virtualenv_prompt {
   fi
 }
 
+# Display git repository info
 function git_prompt_info() {
   if ! git rev-parse --git-dir &> /dev/null; then
     return 0
@@ -92,9 +98,9 @@ function git_prompt_info() {
 VENV="\$(virtualenv_prompt)";
 setopt prompt_subst
 PS1="
-%F{31}${PROMPT_ICON_START}$(printf %"$(($COLUMNS-2))"s |tr " " "─")
-│ %F{black}%K{31}  %T %F{reset}%K{reset}${VENV}${PROMPT_ICON_USER} %F{31}%n ${PROMPT_ICON_POINT} %F{251}${PROMPT_ICON_DIRECTORY}%1~%F{reset}\$(git_prompt_info)
-%F{31}│%F{reset}
-${PROMPT_ICON_END}%F{reset}"
-PS2="${PROMPT_ICON_END}%F{reset}"
+${PROMPT_BORDER_START}$(printf %"$(($COLUMNS-2))"s |tr " " "${PROMPT_BORDER_TOP}")
+${PROMPT_BORDER_LEFT} %F{black}%K{31}  %T %F{reset}%K{reset}${VENV}${PROMPT_ICON_USER} %F{31}%n ${PROMPT_ICON_POINT} %F{251}${PROMPT_ICON_DIRECTORY}%1~%F{reset}\$(git_prompt_info)
+${PROMPT_BORDER_LEFT}
+${PROMPT_BORDER_END}"
+PS2="${PROMPT_BORDER_END}"
 
