@@ -1,4 +1,4 @@
-# Functions
+#!/bin/sh
 function docker-bash() {
 	if [ $# -gt 1 ] && [ $1 = '-compose' ]; then
 		docker compose exec "$2" /bin/bash;
@@ -206,23 +206,4 @@ function git-obliterate() {
 	else
 		echo "File required." 1>&2
 	fi
-}
-
-# Display virtual environment info
-function virtualenv_prompt {
-  if [[ -n "$VIRTUAL_ENV" ]]; then
-    virtualenv=`basename "$VIRTUAL_ENV"`
-    echo -e "
-  %B%F{178}$VIRTUALENV_CHAR%F{}%F{31}$virtualenv%F{}"
-  fi
-}
-
-function prompt_command() {
-	# %{$fg[red]%}%m%{$reset_color%}:%{$fg[green]%}%c%{$reset_color%}$(git_prompt_info) %(!.#.$)
-	# \n${icon_start}$(virtualenv_prompt)${icon_user}${bold_red}\u${normal}${icon_host}${bold_cyan}\h${normal}${icon_directory}${bold_purple}\W${normal}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" on ${icon_branch}  \")${white}$(scm_prompt_info)${normal}\n${icon_end}
-VENV="\$(virtualenv_prompt)";
-  PS1="
-%F{31}${icon_start}%F{black}%K{31}  %T %F{reset}%K{reset}${VENV}${icon_user} %F{31}%n ${icon_point} %F{251}${icon_directory}%1~%F{reset}\$([[ -n \$(git branch 2> /dev/null) ]] && echo \" ${icon_point}%F{172} ${icon_branch} \$(git_prompt_info) \$(git_prompt_short_sha)%F{reset}\")
-${icon_end}"
-  PS2="${icon_end}%F{reset}"
 }
