@@ -1,9 +1,8 @@
 #!/bin/sh
 # ZSH Configuration aliases
-alias zshc="code -n $ZDOTDIR/.zshrc"
-alias zshe="code -n $ZDOTDIR/.zshenv"
-alias zshp="code -n $HOME/.zprofile"
-# alias ohmyzsh="code -n $ZSH/oh-my-zsh"
+alias zshc="vi $ZDOTDIR/.zshrc"
+alias zshe="vi $ZDOTDIR/.zshenv"
+alias zshp="vi $HOME/.zprofile"
 
 # NPM
 alias nr="npm run"
@@ -44,10 +43,11 @@ alias google="ping 8.8.8.8"
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend" # Lock the screen (when going AFK)
 
 # Other
-alias gst='git status -sb'
+alias history="history 1"
 alias bsup="browser-sync start --server --files '**/*.css, **/*.html, **/*.js'"
 alias apl='ansible-playbook'
 alias c="code"
 alias sr="siteroot"
-alias yl="youtube-dl"
+alias yl="yt-dlp"
+alias ylt="yt-dlp-timed"
 alias mip="qurl ipinfo.io"

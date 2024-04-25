@@ -45,7 +45,7 @@ function find_node_modules() {
 		if grep -Evq 'node_modules/.*/node_modules' < <(echo "${node_folder}"); then
 			FOLDERS+=("$node_folder")
 		fi
-	done < <(find ${HOME}/{Code,Sites,Documents/{Work,Projects}} -maxdepth 8 -type d -name 'node_modules')
+	done < <(find ${HOME}/{Code,Sites,Documents/Work} -maxdepth 8 -type d -name 'node_modules')
 
 	for i in ${FOLDERS[@]}; do
 		echo "$i"
@@ -198,12 +198,26 @@ function git-commit() {
 }
 
 function git-obliterate() {
-	if [ -z $1 ]; then
-		git filter-branch -f --index-filter "git rm --cached $file --ignore-unmatch" --prune-empty --tag-name-filter cat -- --all
-		echo "$file" >> .gitignore
-		git add .gitignore
-		git commit -m "Add $file to .gitignore"
+	if ! [ -z $1 ]; then
+    file=$1
+		#git filter-branch -f --index-filter "git rm --cached $file --ignore-unmatch" HEAD --prune-empty --tag-name-filter cat -- --all
+    git filter-repo --invert-paths --path $file
+#		echo "$file" >> .gitignore
+#		git add .gitignore
+#		git commit -m "Add $file to .gitignore"
 	else
 		echo "File required." 1>&2
 	fi
+}
+
+function acustaf() {
+	if ! [ -z $1 ]; then
+		npm run --silent --prefix "/Users/edisonhanchell/Code/Projects/doctors-hospital/acustaf-bot" $1
+	else
+		echo "Action required." 1>&2
+	fi
+}
+
+function yt-dlp-timed() {
+  yt-dlp --external-downloader ffmpeg --external-downloader-args "ffmpeg_i:-ss $1 -to $2" "$@"
 }

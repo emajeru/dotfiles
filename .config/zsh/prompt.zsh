@@ -1,7 +1,9 @@
 #!/bin/zsh
 
-autoload -Uz vcs_info
+# autoload -Uz vcs_info
 autoload -U colors && colors
+autoload edit-command-line
+zle -N edit-command-line
 
 # allow ctrl-r and ctrl-s to search the history
 bindkey '^r' history-incremental-search-backward
@@ -10,6 +12,13 @@ bindkey '^s' history-incremental-search-forward
 # allow ctrl-a and ctrl-e to move to beginning/end of line
 bindkey '^a' beginning-of-line
 bindkey '^e' end-of-line
+bindkey '^k' kill-line
+bindkey '^u' backward-kill-line
+
+# allow up and down arrows to trigger search
+bindkey '^[[A' up-line-or-search
+bindkey '^[[B' down-line-or-search
+bindkey '^Xe' edit-command-line
 
 :<<COMMENT
 zstyle ':vcs_info:*' enable git 
