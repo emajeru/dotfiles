@@ -3,6 +3,8 @@
 alias zshc="vi $ZDOTDIR/.zshrc"
 alias zshe="vi $ZDOTDIR/.zshenv"
 alias zshp="vi $HOME/.zprofile"
+alias zshf="vi $ZDOTDIR/functions.zsh"
+alias zsha="vi $ZDOTDIR/aliases.zsh"
 
 # NPM
 alias nr="npm run"
@@ -51,3 +53,5 @@ alias sr="siteroot"
 alias yl="yt-dlp"
 alias ylt="yt-dlp-timed"
 alias mip="qurl ipinfo.io"
+alias gam="/Users/edisonhanchell/bin/gam/gam"
+alias emltest="~/Developer/Projects/doctors-hospital/email_test.sh"

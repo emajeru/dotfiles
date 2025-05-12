@@ -212,7 +212,7 @@ function git-obliterate() {
 
 function acustaf() {
 	if ! [ -z $1 ]; then
-		npm run --silent --prefix "/Users/edisonhanchell/Code/Projects/doctors-hospital/acustaf-bot" $1
+		npm run --prefix "/Users/edisonhanchell/Developer/Projects/doctors-hospital/acustaf-bot" $1
 	else
 		echo "Action required." 1>&2
 	fi
